@@ -22,8 +22,11 @@ class App extends React.Component {
   render(){
     return (
         <div className='App'>
-          <User data={this.state.user}/>
-          <UserFollowers data={this.state.followers}/>
+         {Object.keys(this.state.user).length === 0 ? <h3>Loading...</h3> : <User data={this.state.user}/> }
+          <div>
+          <h4>Users Followers:</h4>
+            <UserFollowers data={this.state.followers}/>
+          </div>
         </div>
     )
   }
