@@ -22,10 +22,10 @@ class App extends React.Component {
   render(){
     return (
         <div className='App'>
-         {Object.keys(this.state.user).length === 0 ? <h3>Loading...</h3> : <User data={this.state.user}/> }
+         {Object.keys(this.state.user).length === 0 ? <h3 id='loading'>Loading...</h3> : <User data={this.state.user}/> }
           <div>
-          <h4>Users Followers:</h4>
-            <UserFollowers data={this.state.followers}/>
+          
+           {this.state.followers.length === 0 ? <div></div> : <UserFollowers data={this.state.followers}/> }
           </div>
         </div>
     )
