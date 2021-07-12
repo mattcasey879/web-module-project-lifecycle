@@ -9,7 +9,8 @@ const Api = 'https://api.github.com/users'
 class App extends React.Component {
   state = {
     user: {},
-    followers: []
+    followers: [],
+    display: false
   }
   componentDidMount() {
     axios.get(`${Api}/mattcasey879`)
@@ -19,13 +20,19 @@ class App extends React.Component {
     .then(res => this.setState({...this.state, followers: res.data}))
     .catch(err => alert(err + 'Could not get follwers!'))
   }
+
   render(){
     return (
         <div className='App'>
-         {Object.keys(this.state.user).length === 0 ? <h3 id='loading'>Loading...</h3> : <User data={this.state.user}/> }
+         {Object.keys(this.state.user).length === 0 ? <h3 id='loading'>Loading...</h3> : 
+         <User data={this.state.user}
+         toggleFollowers={() => this.setState({...this.state, display: !this.state.display})}/>}
           <div>
           
-           {this.state.followers.length === 0 ? <div></div> : <UserFollowers data={this.state.followers}/> }
+           {this.state.followers.length === 0 ? <div></div> : 
+           this.state.display && <UserFollowers 
+           data={this.state.followers}
+           />}
           </div>
         </div>
     )

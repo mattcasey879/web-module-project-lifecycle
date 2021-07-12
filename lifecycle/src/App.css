@@ -33,4 +33,38 @@
   color:white;
   padding: 1.5%;
   border-radius: 100px;
+  transition: .5s;
+}
+
+.user-container p {
+  text-align: center;
+}
+
+.followers a:hover {
+  transition: .5s;
+  color:black;
+  background-color: dodgerblue;
+}
+.btn-primary:hover {
+  transition: .5s;
+  color:black;
+  background-color: dodgerblue;
+}
+.btn-primary {
+  text-decoration: none;
+  background-color: grey;
+  color:white;
+  padding: 1.5%;
+  border-radius: 100px;
+  transition: .5s;
+  text-align: center;
+  width:fit-content;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
